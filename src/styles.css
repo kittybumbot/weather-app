@@ -128,3 +128,10 @@ a,
   background: #31d2f2;
   color: black;
 }
+
+.github {
+  color: #31d2f2;
+  font-size: small;
+  text-decoration: none;
+  line-height: 0.5;
+}
