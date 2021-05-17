@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Kats Predict Weather</title>
+    <title>Rebuild</title> 
     <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
@@ -40,54 +39,54 @@
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
       rel="stylesheet"
     />
+    <!-- Axios -->
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-  <body id="background-gradient">
+  <body>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve" class="cloudy">
+<g id="cloud-shadow">
+	<path fill="#D8E3E7" d="M150,0.11V32.3c-2.84,7.18-15.74,7.98-17.36-1.68c-5.63,3.92-13.93-1-13.11-7.88
+		c-1.11,0.23-2.36,0.06-3.34-0.44c-1.09,2.77-4.48,4.39-7.41,3.43c-4.89,4.89-14.12,1.25-14.27-5.73c-2.14,0-4.16-0.56-5.9-1.54
+		c-2.62,4.34-8.55,6.67-13.59,5.02c-0.89,2.71-2.96,4.87-5.6,5.88c-0.95,12.49-19.89,14.34-23.31,2.4
+		c-4.18,1.03-8.71-1.2-10.54-4.87c-2.16,1.96-5.09,3.17-8.24,3.1C25.6,42.95,5.5,43.1,3.67,30H0V0.11H150z"/>
+	<path fill="#D8E3E7" d="M0,149.98l0-32.19c2.84-7.18,15.74-7.98,17.36,1.68c5.63-3.92,13.93,1,13.11,7.88
+		c1.11-0.23,2.36-0.06,3.34,0.44c1.09-2.77,4.48-4.39,7.41-3.43c4.89-4.89,14.12-1.25,14.27,5.73c2.14,0,4.16,0.56,5.9,1.54
+		c2.62-4.34,8.55-6.67,13.59-5.02c0.89-2.71,2.96-4.87,5.6-5.88c0.95-12.49,19.89-14.34,23.31-2.4c4.18-1.03,8.71,1.2,10.54,4.87
+		c2.16-1.96,5.09-3.17,8.24-3.1c1.73-12.96,21.83-13.11,23.66-0.01H150v29.89H0z"/>
+</g>
+<g id="cloud">
+	<path fill="#9F5F80" d="M52.06,17.46h-0.31c0.08-0.04,0.16-0.08,0.23-0.12C52.01,17.38,52.03,17.42,52.06,17.46z"/>
+	<path fill="#9F5F80" d="M52.06,17.46h-0.31c0.08-0.04,0.16-0.08,0.23-0.12C52.01,17.38,52.03,17.42,52.06,17.46z"/>
+	<path fill="#9F5F80" d="M52.06,17.46h-0.31c0.08-0.04,0.16-0.08,0.23-0.12C52.01,17.38,52.03,17.42,52.06,17.46z"/>
+	<path fill="#FEFEFE" d="M150,0.11v17.33c-2.29,0.53-4.79-0.8-5.64-2.99c-4.97,5.44-14.46-0.52-11.6-7.4
+		c-1.32,0.13-2.67-0.21-3.78-0.8c-0.86,0.36-1.96,0.39-2.83,0.06c0.58,2.76-2.02,5.33-4.77,4.72c-1.03,1.18-2.39,2.05-3.94,2.49
+		c-0.78,12.4-19.8,9.95-17.37-2.26c-2.81,0.45-5.63-1.21-6.68-3.7c-1.79,0.99-4.32,0.9-6-0.25c0.62,3.09-2.41,5.95-5.46,5.13
+		c-0.85,7.24-11.95,7.88-13.67,0.85c-2,1.22-4.98,0.98-6.74-0.52c-1.79,3.9-7.67,5.09-10.82,2.08c-0.24,1.39-1.18,2.53-2.44,3.04
+		c0.49,3.24-3.39,5.71-6.1,3.89c-3.8,4.61-12.13,2.91-13.83-2.78c-0.96,0.12-1.96-0.11-2.76-0.55c-0.82,0.66-1.79,1.12-2.85,1.35
+		c0.37,9.05-13.85,9.45-14.02,0.42c-1.36,1.23-3.63,1.62-5.34,0.83C2.89,22.49,1.54,23.48,0,23.49V0.11H150z"/>
+	<path fill="#FEFEFE" d="M0,150.32l0-17.33c2.29-0.53,4.79,0.8,5.64,2.99c4.97-5.44,14.46,0.52,11.6,7.4
+		c1.32-0.13,2.67,0.21,3.78,0.8c0.86-0.36,1.96-0.39,2.83-0.06c-0.58-2.76,2.02-5.33,4.77-4.72c1.03-1.18,2.39-2.05,3.94-2.49
+		c0.78-12.4,19.8-9.95,17.37,2.26c2.81-0.45,5.63,1.21,6.68,3.7c1.79-0.99,4.32-0.9,6,0.25c-0.62-3.09,2.41-5.95,5.46-5.13
+		c0.85-7.24,11.95-7.88,13.67-0.85c2-1.22,4.98-0.98,6.74,0.52c1.79-3.9,7.67-5.09,10.82-2.08c0.24-1.39,1.18-2.53,2.44-3.04
+		c-0.49-3.24,3.39-5.71,6.1-3.89c3.8-4.61,12.13-2.91,13.83,2.78c0.96-0.12,1.96,0.11,2.76,0.55c0.82-0.66,1.79-1.12,2.85-1.35
+		c-0.37-9.05,13.85-9.45,14.02-0.42c1.36-1.23,3.63-1.62,5.34-0.83c0.47-1.44,1.82-2.43,3.36-2.44v23.38H0z"/>
+</g>
+</svg>
     <div class="container">
-      <div class="dashboard">
-        <div class="weather-icon">
-          <img
-            src="images/Icon-Sun.svg"
-            alt="sunny day"
-            class="weather-icon"
-            id="weather-icon"
-          />
-        </div>
-        <div class="weather-today">
-          <h2 class="location" id="location">Duarte, California</h2>
-          <p class="current-time" id="current-day-time">
-            Sunday, May 2 at 12:00
-            <br /><span class="activity-prompt" id="activity-prompt">
-              Great day for a hike!
-            </span>
-          </p>
-          <h1 class="current-temp" id="temperature">81</h1>
-          <span class="temp-units" id="temp-units">
-            <a href="#" id="fahrenheit">°F</a>
-            <a href="#" id="celsius">°C</a>
-          </span>
-        </div>
-        <div class="forecast-description">
-          <p id="forecast-description">
-            Today will be sunny with a high of
-            <em id="today-high">82</em> during the day and a low of
-            <em id="today-low">65</em> tonight
-          </p>
-        </div>
-        <a
-          href="https://github.com/kittybumbot/weather-app"
-          class="github"
-          target="_blank"
-          >Coded by kittybumbot... <br />partly open-sourced</a
-        >
-      </div>
-      <div>
-        <button class="current-location-weather" id="current-location-weather">
-          Current
-        </button>
-      </div>
       <div class="row">
-        <form id="city-search">
-          <div class="col-9">
+        <div class="col-4">
+          <div>
+            <button
+              class="current-location-weather btn btn-outline-info"
+              id="current-location-weather"
+            >
+              Current Location
+            </button>
+          </div>
+        </div>
+        <div class="col-8">
+          <form id="city-search">
             <div class="input-group mb-3">
               <button
                 class="btn btn-outline-info"
@@ -96,72 +95,125 @@
               >
                 Search City
               </button>
-              <input
-                type="search"
-                class="form-control shadow-sm"
-                placeholder="Enter city name here"
-                autofocus="on"
-                id="city-input"
-              />
+                <input
+                  type="search"
+                  class="form-control shadow-sm"
+                  placeholder="Enter city name here"
+                  autofocus="on"
+                  id="city-input"
+                />
             </div>
-          </div>
-        </form>
-
-        <div class="future-days">
-          <div class="forecast-icon">
-            <i class="fas fa-cloud forecast" id="future-temp1-icon"></i>
-          </div>
-          <div class="days" id="future-temp1-day">Monday</div>
-          <div class="future-temp">
-            Expect a high of <em id="future-temp1-high">68</em> with a low
-            around <span id="future-temp1-low"> 50</span>
-          </div>
-        </div>
-        <div class="future-days">
-          <div class="forecast-icon">
-            <i class="fas fa-wind forecast" id="future-temp2-icon"></i>
-          </div>
-          <div class="days" id="future-temp2-day">Tuesday</div>
-          <div class="future-temp">
-            <em id="future-temp2-high">72</em>
-            <span id="future-temp2-low"> 52</span>
-          </div>
-        </div>
-        <div class="future-days">
-          <div class="forecast-icon">
-            <i class="fas fa-cloud-sun forecast" id="future-temp3-icon"></i>
-          </div>
-          <div class="days" id="future-temp3-day">Wednesday</div>
-          <div class="future-temp">
-            <em id="future-temp3-high">73</em>
-            <span id="future-temp3-low"> 55</span>
-          </div>
-        </div>
-        <div class="future-days">
-          <div class="forecast-icon">
-            <i
-              class="fas fa-cloud-showers-heavy forecast"
-              id="future-temp1-icon"
-            ></i>
-          </div>
-          <div class="days" id="future-temp4-day">Thursday</div>
-          <div class="future-temp">
-            <em id="future-temp4-high">84</em>
-            <span id="future-temp4-low"> 54</span>
-          </div>
-        </div>
-        <div class="future-days">
-          <div class="forecast-icon">
-            <i class="fas fa-sun forecast" id="future-temp5-icon"></i>
-          </div>
-          <div class="days" id="future-temp5-day">Friday</div>
-          <div class="future-temp">
-            <em id="future-temp5-high">68</em>
-            <span id="future-temp5-low"> 50</span>
-          </div>
+          </form>
         </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="card dashboard">
+            <div class="card-body">
+              <h2 class="card-title" id="location">San Francisco, US</h2>
+              <h3 class="card-subtitle mb-2 text-muted" id="current-day-time"></h3>
+              <p class="card-text">
+                <span id="forecast-description">Cloudy</span><br/>
+                Humidity: <span id="humidity">100</span>%<br />
+                Wind: <span id="windspeed">10</span><span id="wind-units"> mph</span>
+              </p>
+            </div>
+          </div>
+        </div>
+          <div class="col-6 dashboard">
+            <div class="row">
+              <div class="col">  
+                <div class="temperature">
+                <h1 id="temperature">25</h1><span class="temp-units" id="temp-units"> <a href="#" id="celsius">°C</a></span>
+                </div> 
+              </div>
+              <div class="col">
+                <div class="forecast-now">
+                  <i class="fas fa-wind" id="future-temp2-icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="card dashboard">
+                    <div class="card-body">
+                      <h4 class="card-title" id="forecast-day1">Monday</h4>
+                        <h3 class="card-subtitle mb-2 text-muted" id="forecast-day1-icon">
+                        <i class="fas fa-wind forecast"></i>
+                        </h3>
+                          <p class="card-text">
+                            <span class="forecast-high" id="day1-high">35</span>
+                            <span class="forecast-low" id="day1-low">15</span>
+                          </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card dashboard">
+                    <div class="card-body">
+                      <h4 class="card-title" id="forecast-day1">Tuesday</h4>
+                        <h3 class="card-subtitle mb-2 text-muted" id="forecast-day1-icon">
+                        <i class="fas fa-wind forecast"></i>
+                        </h3>
+                          <p class="card-text">
+                            <span class="forecast-high" id="day1-high">35</span>
+                            <span class="forecast-low" id="day1-low">15</span>
+                          </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card dashboard">
+                    <div class="card-body">
+                      <h4 class="card-title" id="forecast-day1">Wednesday</h4>
+                        <h3 class="card-subtitle mb-2 text-muted" id="forecast-day1-icon">
+                        <i class="fas fa-wind forecast"></i>
+                        </h3>
+                          <p class="card-text">
+                            <span class="forecast-high" id="day1-high">35</span>
+                            <span class="forecast-low" id="day1-low">15</span>
+                          </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card dashboard">
+                    <div class="card-body">
+                      <h4 class="card-title" id="forecast-day1">Thursday</h4>
+                        <h3 class="card-subtitle mb-2 text-muted" id="forecast-day1-icon">
+                        <i class="fas fa-wind forecast"></i>
+                        </h3>
+                          <p class="card-text">
+                            <span class="forecast-high" id="day1-high">35</span>
+                            <span class="forecast-low" id="day1-low">15</span>
+                          </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card dashboard">
+                    <div class="card-body">
+                      <h4 class="card-title" id="forecast-day1">Friday</h4>
+                        <h3 class="card-subtitle mb-2 text-muted" id="forecast-day1-icon">
+                        <i class="fas fa-wind forecast"></i>
+                        </h3>
+                          <p class="card-text">
+                            <span class="forecast-high" id="day1-high">35</span>
+                            <span class="forecast-low" id="day1-low">15</span>
+                          </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p class="signature">
+                This project was coded by <a href="mailto:kateowynn@gmail.com">kittybumbot🐱‍👤</a> and is <a href="https://github.com/kittybumbot/weather-app"
+          class="github"
+          target="_blank">open-sourced on GitHub</a> and <a href="https://adoring-joliot-a852f7.netlify.app/" target="_blank">hosted on Netlify</a>
+            </p>
+        </footer>
+      </div>
+    <script src="src/index.js"></script>
   </body>
-  <script src="src/index.js"></script>
 </html>

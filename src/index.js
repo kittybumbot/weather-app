@@ -29,52 +29,6 @@ function currentDate() {
 
 currentDate();
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 81;
-  let todayHigh = document.querySelector("#today-high");
-  todayHigh.innerHTML = "82°F";
-  let todayLow = document.querySelector("#today-low");
-  todayLow.innerHTML = "65°F";
-  let futureTemp1 = document.querySelector("#future-temp1-high");
-  futureTemp1.innerHTML = "68°F";
-  let futureTemp2 = document.querySelector("#future-temp2-high");
-  futureTemp2.innerHTML = "73°F";
-  let futureTemp3 = document.querySelector("#future-temp3-high");
-  futureTemp3.innerHTML = "67°F";
-  let futureTemp4 = document.querySelector("#future-temp4-high");
-  futureTemp4.innerHTML = "87°F";
-  let futureTemp5 = document.querySelector("#future-temp5-high");
-  futureTemp5.innerHTML = "91°F";
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 27;
-  let todayHigh = document.querySelector("#today-high");
-  todayHigh.innerHTML = "28°C";
-  let todayLow = document.querySelector("#today-low");
-  todayLow.innerHTML = "18°C";
-  let futureTemp1 = document.querySelector("#future-temp1-high");
-  futureTemp1.innerHTML = "20°C";
-  let futureTemp2 = document.querySelector("#future-temp2-high");
-  futureTemp2.innerHTML = "23°C";
-  let futureTemp3 = document.querySelector("#future-temp3-high");
-  futureTemp3.innerHTML = "19°C";
-  let futureTemp4 = document.querySelector("#future-temp4-high");
-  futureTemp4.innerHTML = "30°C";
-  let futureTemp5 = document.querySelector("#future-temp5-high");
-  futureTemp5.innerHTML = "32°C";
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", convertToCelsius);
-
 //Changing HTML
 function updateWeather(response) {
   document.querySelector(
