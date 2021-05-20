@@ -50,13 +50,12 @@ function updateWeather(response) {
   document.querySelector(
     "#forecast-description"
   ).innerHTML = `${response.data.weather[0].description}`;
-  let cityID = response.data.sys.id;
 }
 
 //Using API to find City
 function citySearch(city) {
   let units = "metric";
-  let apiKey = "c80976c573499e510bce2291a278b926";
+  let apiKey = "349877ccd91127561e383eeea754adcd";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
   let url = `${apiEndpoint}q=${city}&appid=${apiKey}&units=${units}`;
   console.log(url);
@@ -91,4 +90,5 @@ function currentPosition() {
 let currentButton = document.querySelector("#current-location-weather");
 currentButton.addEventListener("click", currentPosition);
 
-citySearch("Johannesburg");
+//Runs on page loading
+citySearch("Duarte");
