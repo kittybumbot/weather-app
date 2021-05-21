@@ -33,6 +33,25 @@ function currentDate() {
 currentDate();
 
 //Changing HTML
+function updateForecast(response) {
+  let forecast = response.data.daily;
+  let forecastDay = document.querySelector("#forecast-day");
+  console.log(forecastDay);
+}
+
+//Using API to retrieve future forecast data
+function forecastSearch(coordinates) {
+  let apiKey = "349877ccd91127561e383eeea754adcd";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall?";
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let units = "metric";
+  let url = `${apiEndpoint}lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}&units=${units}`;
+  console.log(url);
+  axios.get(url).then(updateForecast);
+}
+
+//Changing HTML
 function updateWeather(response) {
   document.querySelector(
     "#location"
@@ -50,6 +69,11 @@ function updateWeather(response) {
   document.querySelector(
     "#forecast-description"
   ).innerHTML = `${response.data.weather[0].description}`;
+  document.querySelector(
+    "#temperature-icon"
+  ).innerHTML = `<img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"/>`;
+
+  forecastSearch(response.data.coord);
 }
 
 //Using API to find City
@@ -58,7 +82,6 @@ function citySearch(city) {
   let apiKey = "349877ccd91127561e383eeea754adcd";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
   let url = `${apiEndpoint}q=${city}&appid=${apiKey}&units=${units}`;
-  console.log(url);
 
   axios.get(url).then(updateWeather);
 }
