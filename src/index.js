@@ -65,6 +65,9 @@ function updateWeather(response) {
   document.querySelector(
     "#temperature-icon"
   ).innerHTML = `<img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"/>`;
+  document
+    .querySelector("#temperature-icon")
+    .setAttribute("alt", response.data.weather[0].description);
 
   document.querySelector("#current-day-time").innerHTML = currentDate(
     response.data.dt * 1000
