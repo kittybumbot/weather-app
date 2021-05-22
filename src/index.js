@@ -82,12 +82,16 @@ function switchToImperial(event) {
   event.preventDefault();
   let fahrenheit = (celsius * 9) / 5 + 32;
   let mph = kmh * 1.609344;
+  metric.classList.remove("active-link");
+  imperial.classList.add("active-link");
   document.querySelector("#temperature").innerHTML = Math.round(fahrenheit);
   document.querySelector("#windspeed").innerHTML = Math.round(mph);
 }
 
 function switchtoMetric(event) {
   event.preventDefault();
+  metric.classList.add("active-link");
+  imperial.classList.remove("active-link");
   document.querySelector("#temperature").innerHTML = celsius;
   document.querySelector("#windspeed").innerHTML = kmh;
 }
