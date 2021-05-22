@@ -1,7 +1,6 @@
-function currentDate() {
-  let now = new Date();
+function currentDate(timestamp) {
+  let now = new Date(timestamp);
 
-  let date = now.getDate();
   let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -10,11 +9,7 @@ function currentDate() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let seconds = now.getSeconds();
-  if (seconds < 10) {
-    seconds = `0${seconds}`;
-  }
-  let year = now.getFullYear();
+
   let days = [
     "Sunday",
     "Monday",
@@ -25,9 +20,7 @@ function currentDate() {
     "Saturday",
   ];
   let today = days[now.getDay()];
-  let time = `${hours}:${minutes}:${seconds}`;
-  let dayDisplay = document.querySelector("#current-day-time");
-  dayDisplay.innerHTML = `${today} at ${time}`;
+  return `${today} at ${hours}:${minutes}`;
 }
 
 currentDate();
@@ -73,6 +66,9 @@ function updateWeather(response) {
     "#temperature-icon"
   ).innerHTML = `<img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"/>`;
 
+  document.querySelector("#current-day-time").innerHTML = currentDate(
+    response.data.dt * 1000
+  );
   forecastSearch(response.data.coord);
 }
 

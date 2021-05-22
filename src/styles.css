@@ -8,6 +8,14 @@ h2 {
   font-family: "RocknRoll One", sans-serif;
 }
 
+h3 {
+  font-size: 16px;
+}
+
+h3::first-letter {
+  text-transform: capitalize;
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: normal;
@@ -78,4 +86,8 @@ dashboard,
 a {
   color: #00adb5;
   text-decoration: none;
+}
+
+.forecast-description {
+  text-transform: capitalize;
 }
