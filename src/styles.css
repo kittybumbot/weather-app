@@ -64,24 +64,22 @@ body {
 .temperature-icon {
   max-height: 100%;
   max-width: 100%;
-  float: left;
 }
 
-dashboard,
-.forecast {
-  color: #e84a5f;
-}
-
-.temp-units a {
-  font-weight: bolder;
-  font-size: 18px;
-  color: #e84a5f;
+.temp-units {
+  font-size: 14px;
   position: relative;
-  top: -9px;
+  top: -45px;
   text-decoration: none;
 }
 
-a {
+.temp-units .active-link {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.signature a {
   color: #00adb5;
   text-decoration: none;
 }

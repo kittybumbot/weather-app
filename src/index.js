@@ -20,7 +20,7 @@ function currentDate(timestamp) {
     "Saturday",
   ];
   let today = days[now.getDay()];
-  return `${today} at ${hours}:${minutes}`;
+  return `${today} ${hours}:${minutes}`;
 }
 
 currentDate();
@@ -72,7 +72,24 @@ function updateWeather(response) {
   document.querySelector("#current-day-time").innerHTML = currentDate(
     response.data.dt * 1000
   );
+  celsius = Math.round(response.data.main.temp);
+  kmh = Math.round(response.data.wind.speed);
   forecastSearch(response.data.coord);
+}
+
+//updating HTML to reflect imperial units and switching back to metric
+function switchToImperial(event) {
+  event.preventDefault();
+  let fahrenheit = (celsius * 9) / 5 + 32;
+  let mph = kmh * 1.609344;
+  document.querySelector("#temperature").innerHTML = Math.round(fahrenheit);
+  document.querySelector("#windspeed").innerHTML = Math.round(mph);
+}
+
+function switchtoMetric(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML = celsius;
+  document.querySelector("#windspeed").innerHTML = kmh;
 }
 
 //Using API to find City
@@ -111,6 +128,13 @@ function currentPosition() {
 
 let currentButton = document.querySelector("#current-location-weather");
 currentButton.addEventListener("click", currentPosition);
+
+let celsius = null;
+let kmh = null;
+let imperial = document.querySelector("#fahrenheit");
+imperial.addEventListener("click", switchToImperial);
+let metric = document.querySelector("#celsius");
+metric.addEventListener("click", switchtoMetric);
 
 //Runs on page loading
 citySearch("Duarte");
