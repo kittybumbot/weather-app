@@ -114,7 +114,7 @@
             </div>
           </div>
         </div>
-          <div class="col-sm-6 dashboard mr-3">
+          <div class="col-sm-6 dashboard">
             <div class="row">
               <div class="col">  
                 <div class="temperature">
@@ -128,20 +128,18 @@
               </div>
             </div>
           </div>
-        <div class="row">
+        <div class="dashboard future-forecast" id="future-forecast">
+          <div class="row">
             <div class="col-sm">
-                <div class="card dashboard">
-                    <div class="card-body">
-                      <h4 class="card-title" id="forecast-day"></h4>
-                        <h3 class="card-subtitle mb-2 text-muted" id="forecast-icon">
-                        </h3>
-                          <p class="card-text">
-                            <span class="forecast-high" id="day-high"></span>
-                            <span class="forecast-low" id="day-low"></span>
-                          </p>
-                    </div>
+                <h4 class="forecast-day" id="forecast-day">
+                </h4>
+                <img src="#" alt="forecast-description" class="forecast-icon" id="forecast-icon"/>
+                <div class="forecast-weather">
+                  <span class="forecast-high" id="forecast-max"></span>
+                  <span class="forecast-min" id="forecast-min"></span>
                 </div>
             </div>
+          </div>
         </div>
         <footer>
             <p class="signature">

@@ -24,6 +24,11 @@ body {
   background-size: cover;
 }
 
+a {
+  color: #00adb5;
+  text-decoration: none;
+}
+
 .cloudy {
   position: fixed;
   background-position: center;
@@ -70,20 +75,24 @@ body {
   font-size: 14px;
   position: relative;
   top: -45px;
-  text-decoration: none;
 }
 
 .active-link {
   color: black;
   cursor: default;
-  text-decoration: none;
-}
-
-.signature a {
-  color: #00adb5;
-  text-decoration: none;
 }
 
 .forecast-description {
   text-transform: capitalize;
+}
+
+.future-forecast {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.forecast-min {
+  opacity: 0.5;
 }

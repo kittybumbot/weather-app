@@ -25,11 +25,46 @@ function currentDate(timestamp) {
 
 currentDate();
 
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let forecastDay = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  return days[forecastDay];
+}
+
 //Changing HTML
 function updateForecast(response) {
+  console.log(response.data.daily);
   let forecast = response.data.daily;
-  let forecastDay = document.querySelector("#forecast-day");
-  console.log(forecastDay);
+  let forecastElement = document.querySelector("#future-forecast");
+  forecastHTML = `<div class="row">`;
+  forecast.forEach(function (eachDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-sm">
+                <h4 class="forecast-day">
+                  ${formatForecastDay(eachDay.dt)}
+                </h4>
+                <img src="http://openweathermap.org/img/wn/${
+                  eachDay.weather[0].icon
+                }@2x.png" alt="${
+          eachDay.weather[0].description
+        }" class="forecast-icon"/>
+                <div class="forecast-weather">
+                  <span class="forecast-high">${Math.round(
+                    eachDay.temp.max
+                  )}°</span>
+                  <span class="forecast-min"> ${Math.round(
+                    eachDay.temp.min
+                  )}°</span>
+                </div>
+            </div>`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 //Using API to retrieve future forecast data
