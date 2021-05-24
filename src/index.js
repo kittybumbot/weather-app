@@ -34,7 +34,6 @@ function formatForecastDay(timestamp) {
 
 //Changing HTML
 function updateForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#future-forecast");
   forecastHTML = `<div class="row">`;
@@ -83,7 +82,7 @@ function forecastSearch(coordinates) {
 function updateWeather(response) {
   document.querySelector(
     "#location"
-  ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+  ).innerHTML = `${response.data.name}, <span class="country">${response.data.sys.country}</span>`;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
