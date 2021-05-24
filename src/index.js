@@ -61,7 +61,7 @@ function updateForecast(response) {
             </div>`;
     }
   });
-
+  console.log(forecast[1].temp.max);
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
