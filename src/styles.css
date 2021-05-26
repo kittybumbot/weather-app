@@ -8,10 +8,6 @@ h2 {
   font-family: "RocknRoll One", sans-serif;
 }
 
-h5::first-letter {
-  text-transform: capitalize;
-}
-
 body {
   font-family: "Lato", sans-serif;
   font-weight: normal;
@@ -43,9 +39,9 @@ a {
   border: none;
   border-radius: 15px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-  max-width: 75%;
+  max-width: 70%;
   margin: 250px auto;
-  margin-bottom: 350px;
+  margin-bottom: 200px;
   padding: 25px;
   z-index: 2;
 }
@@ -96,4 +92,10 @@ a {
 .country {
   font-size: 16px;
   opacity: 0.5;
+}
+
+.temperature-icon {
+  max-width: 1000%;
+  max-height: auto;
+  align-items: center;
 }
