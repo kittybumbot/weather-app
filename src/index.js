@@ -5,7 +5,7 @@ function currentDate(timestamp) {
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  if (hours > 18) {
+  if (hours > 18 || hours < 6) {
     document.getElementsByTagName("body")[0].style.background =
       "linear-gradient(#0a1931, #150e56, #325288)";
     document.getElementsByTagName("h1")[0].style.color = "white";
@@ -39,8 +39,6 @@ function currentDate(timestamp) {
   let today = days[now.getDay()];
   return `${today} ${hours}:${minutes}`;
 }
-
-currentDate();
 
 function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -88,7 +86,6 @@ function forecastSearch(coordinates) {
   let lon = coordinates.lon;
   let units = "imperial";
   let url = `${apiEndpoint}lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}&units=${units}`;
-  console.log(url);
   axios.get(url).then(updateForecast);
 }
 
@@ -171,7 +168,7 @@ function updateWeather(response) {
     "#temperature-icon"
   ).innerHTML = `<img src="${updateIcon(
     response.data.weather[0].icon
-  )}" width=200/>`;
+  )}" width=250/>`;
   document
     .querySelector("#temperature-icon")
     .setAttribute("alt", response.data.weather[0].description);

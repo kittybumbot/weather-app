@@ -6,20 +6,20 @@ h1 {
 
 h2 {
   font-family: "Quicksand", sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: normal;
-  background: linear-gradient(to right top, #77e0ff, #71b9ff, #6d9bff, #6b8fff);
+  background: linear-gradient(#6d9bff, #71b9ff, #77e0ff, #f2f4c0);
   background-position: center;
   background-size: cover;
 }
 
 a {
-  color: #0b5ed7;
+  color: #1687a7;
   text-decoration: none;
 }
 
@@ -66,7 +66,7 @@ a {
 }
 
 .future-forecast {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.4);
   border: none;
   border-radius: 5px;
   margin: 10px 0;
@@ -82,9 +82,9 @@ a {
 }
 
 .temp-units {
-  font-size: 14px;
+  font-size: 18px;
   position: relative;
-  top: -50px;
+  top: -60px;
 }
 
 .active-link {
@@ -115,9 +115,9 @@ a {
 }
 
 .temperature-icon {
-  padding-top: 25px;
+  padding-top: 10px;
 }
 
 .temperature {
-  padding: 25px 0 0 25px;
+  padding: 20px 0 0 45px;
 }
