@@ -1,23 +1,25 @@
 h1 {
   display: inline-block;
-  font-size: 75px;
-  font-family: "RocknRoll One", sans-serif;
+  font-size: 9rem;
+  font-family: "Quicksand", sans-serif;
 }
 
 h2 {
-  font-family: "RocknRoll One", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: normal;
-  background-image: linear-gradient(to right top, #19d3da, #eeeeee);
+  background: linear-gradient(to right top, #77e0ff, #71b9ff, #6d9bff, #6b8fff);
   background-position: center;
   background-size: cover;
 }
 
 a {
-  color: #00adb5;
+  color: #0b5ed7;
   text-decoration: none;
 }
 
@@ -30,20 +32,25 @@ a {
 }
 
 .container {
+  margin: 250px auto;
+  margin-bottom: 300px;
+  z-index: 2;
+}
+
+.wrapper {
   background: linear-gradient(
-    to left top,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0.4)
+    to left bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
   );
   backdrop-filter: blur(2rem);
   border: none;
   border-radius: 15px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-  max-width: 70%;
-  margin: 250px auto;
-  margin-bottom: 300px;
+  max-width: 90%;
+  margin: 0 auto;
   padding: 25px;
-  z-index: 2;
+  z-index: inherit;
 }
 
 .dashboard {
@@ -58,15 +65,26 @@ a {
   padding: 10px;
 }
 
-.temperature-icon {
-  max-height: 100%;
-  max-width: 100%;
+.future-forecast {
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.card {
+  background: none;
 }
 
 .temp-units {
   font-size: 14px;
   position: relative;
-  top: -45px;
+  top: -50px;
 }
 
 .active-link {
@@ -78,13 +96,6 @@ a {
   text-transform: capitalize;
 }
 
-.future-forecast {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-}
-
 .forecast-min {
   opacity: 0.5;
 }
@@ -94,8 +105,19 @@ a {
   opacity: 0.5;
 }
 
+.signature:hover {
+  color: #ffffff;
+}
+
+.weather {
+  display: flex;
+  justify-content: center;
+}
+
 .temperature-icon {
-  max-width: 1000%;
-  max-height: auto;
-  align-items: center;
+  padding-top: 25px;
+}
+
+.temperature {
+  padding: 25px 0 0 25px;
 }

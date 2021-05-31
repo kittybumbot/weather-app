@@ -5,6 +5,23 @@ function currentDate(timestamp) {
   if (hours < 10) {
     hours = `0${hours}`;
   }
+  if (hours > 18) {
+    document.getElementsByTagName("body")[0].style.background =
+      "linear-gradient(#0a1931, #150e56, #325288)";
+    document.getElementsByTagName("h1")[0].style.color = "white";
+    document.getElementsByTagName("h2")[0].style.color = "white";
+    document.getElementsByTagName("h5")[0].style.color = "white";
+    document.getElementsByTagName("a")[0].style.color = "white";
+    document.getElementsByTagName("a")[1].style.color = "#f7ea00";
+    document.getElementsByTagName("a")[2].style.color = "#f7ea00";
+    document.getElementsByTagName("a")[3].style.color = "#f7ea00";
+    document.getElementsByTagName("p")[0].style.color = "white";
+    document.getElementsByTagName("p")[1].style.color = "white";
+    document.querySelector("#current-location-weather").className =
+      "btn btn-outline-light";
+    document.querySelector("#button-addon1").className =
+      "btn btn-outline-light";
+  }
   let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -45,11 +62,9 @@ function updateForecast(response) {
                 <h4 class="forecast-day">
                   ${formatForecastDay(eachDay.dt)}
                 </h4>
-                <img src="http://openweathermap.org/img/wn/${
-                  eachDay.weather[0].icon
-                }@2x.png" alt="${
+                <img src="${updateIcon(eachDay.weather[0].icon)}" alt="${
           eachDay.weather[0].description
-        }" class="forecast-icon"/>
+        }" width=75 class="forecast-icon"/>
                 <div class="forecast-weather">
                   <span class="forecast-high">${Math.round(
                     eachDay.temp.max
@@ -61,7 +76,6 @@ function updateForecast(response) {
             </div>`;
     }
   });
-  console.log(forecast[1].temp.max);
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
@@ -72,7 +86,7 @@ function forecastSearch(coordinates) {
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall?";
   let lat = coordinates.lat;
   let lon = coordinates.lon;
-  let units = "metric";
+  let units = "imperial";
   let url = `${apiEndpoint}lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}&units=${units}`;
   console.log(url);
   axios.get(url).then(updateForecast);
@@ -84,7 +98,7 @@ function updateIcon(currentIcon) {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/009/601/original/01d.png?1621999754";
   }
   if (currentIcon === "01n") {
-    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/009/602/original/01n.png?1621999763";
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/009/920/original/01n.png?1622431885";
   }
   if (currentIcon === "02d") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/009/603/original/02d.png?1621999770";
@@ -139,7 +153,7 @@ function updateIcon(currentIcon) {
 function updateWeather(response) {
   document.querySelector(
     "#location"
-  ).innerHTML = `${response.data.name}, <span class="country">${response.data.sys.country}</span>`;
+  ).innerHTML = `${response.data.name} <span class="country">${response.data.sys.country}</span>`;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -171,7 +185,7 @@ function updateWeather(response) {
 }
 
 //updating HTML to reflect imperial units and switching back to metric
-function switchToImperial(event) {
+/*function switchToImperial(event) {
   event.preventDefault();
   let fahrenheit = (celsius * 9) / 5 + 32;
   let mph = kmh * 1.609344;
@@ -179,6 +193,7 @@ function switchToImperial(event) {
   imperial.classList.add("active-link");
   document.querySelector("#temperature").innerHTML = Math.round(fahrenheit);
   document.querySelector("#windspeed").innerHTML = Math.round(mph);
+  document.querySelector("#wind-units").innerHTML = " mph";
 }
 
 function switchtoMetric(event) {
@@ -187,11 +202,13 @@ function switchtoMetric(event) {
   imperial.classList.remove("active-link");
   document.querySelector("#temperature").innerHTML = celsius;
   document.querySelector("#windspeed").innerHTML = kmh;
+  document.querySelector("#wind-units").innerHTML = " km/h";
 }
+*/
 
 //Using API to find City
 function citySearch(city) {
-  let units = "metric";
+  let units = "imperial";
   let apiKey = "349877ccd91127561e383eeea754adcd";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
   let url = `${apiEndpoint}q=${city}&appid=${apiKey}&units=${units}`;
@@ -212,7 +229,7 @@ searchForm.addEventListener("submit", citySubmit);
 function showLocation(location) {
   let latitude = location.coords.latitude;
   let longitude = location.coords.longitude;
-  let units = "metric";
+  let units = "imperial";
   let key = "c80976c573499e510bce2291a278b926";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
   let url = `${apiEndpoint}lat=${latitude}&lon=${longitude}&appid=${key}&units=${units}`;
@@ -226,12 +243,12 @@ function currentPosition() {
 let currentButton = document.querySelector("#current-location-weather");
 currentButton.addEventListener("click", currentPosition);
 
-let celsius = null;
-let kmh = null;
-let imperial = document.querySelector("#fahrenheit");
-imperial.addEventListener("click", switchToImperial);
-let metric = document.querySelector("#celsius");
-metric.addEventListener("click", switchtoMetric);
+//let celsius = null;
+//let kmh = null;
+//let imperial = document.querySelector("#fahrenheit");
+//imperial.addEventListener("click", switchToImperial);
+//let metric = document.querySelector("#celsius");
+//metric.addEventListener("click", switchtoMetric);
 
 //Runs on page loading
 citySearch("Duarte");
